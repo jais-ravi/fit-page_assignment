@@ -26,7 +26,11 @@ const Navbar = () => {
             </Button>
           ) : (
             <Button asChild>
-              <Link href="http://localhost:8000/api/auth/google">Login with Google</Link>
+              <Link
+                href={`${process.env.NEXT_PUBLIC_API_BASE_URL}/auth/google`}
+              >
+                Login with Google
+              </Link>
             </Button>
           )}
         </div>

@@ -7,7 +7,10 @@ const router = express.Router();
 
 router.get(
   "/google",
-  passport.authenticate("google", { scope: ["profile", "email"],prompt: "select_account", })
+  passport.authenticate("google", {
+    scope: ["profile", "email"],
+    prompt: "select_account",
+  })
 );
 
 router.get(
@@ -25,9 +28,11 @@ router.get(
     res.cookie("token", token, {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
+      sameSite: process.env.NODE_ENV === "production" ? "None" : "Lax",
+      maxAge: 7 * 24 * 60 * 60 * 1000,
     });
 
-    res.redirect(`${process.env.FRONTEND_URL}`)
+    res.redirect(`${process.env.FRONTEND_URL}`);
   }
 );
 

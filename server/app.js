@@ -1,7 +1,7 @@
 import express from "express";
 import dotenv from "dotenv"
 import cors from "cors";
-
+import  session  from "express-session";
 import passport from "passport";
 import cookieParser from "cookie-parser"
 
@@ -19,7 +19,13 @@ app.use(cors({origin: process.env.FRONTEND_URL, credentials:true}));
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.urlencoded({extended:true}));
-
+app.use(
+    session({
+        secret: process.env.JWT_SECRET,
+        resave: false,
+        saveUninitialized: false,
+    })
+)
 app.use(passport.initialize());
 app.use(passport.session());
 

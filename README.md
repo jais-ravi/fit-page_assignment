@@ -106,15 +106,6 @@ npm install
 npm run dev
 ```
 
-## 🌐 Hosting
-
-You can host:
-
-- **Frontend** on [Vercel](https://fit-page-assignment.vercel.app)
-- **Backend** on [Render](https://fit-page-assignment.onrender.com) 
-- **Database** on Railway
-
----
 
 ## ✅ Input Validations
 

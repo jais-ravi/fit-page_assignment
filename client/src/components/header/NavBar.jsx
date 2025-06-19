@@ -7,7 +7,9 @@ import Link from "next/link";
 
 const Navbar = () => {
   const { user, loading, logout } = useAuth();
-
+  const handleGoogleLogin = () => {
+    window.location.href = `${process.env.NEXT_PUBLIC_API_BASE_URL}/auth/google`;
+  };
   return (
     <nav className="w-full border-b flex items-center justify-between px-6 py-3 ">
       <Link href="/">
@@ -26,11 +28,7 @@ const Navbar = () => {
             </Button>
           ) : (
             <Button asChild>
-              <Link
-                href={`${process.env.NEXT_PUBLIC_API_BASE_URL}/auth/google`}
-              >
-                Login with Google
-              </Link>
+              <Button onClick={handleGoogleLogin}>Login with Google</Button>
             </Button>
           )}
         </div>
